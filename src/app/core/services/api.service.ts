@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environements/environment.dev';
 
-@Injectable()
+@Injectable({providedIn:'root'})
 export class ApiService {
   constructor(private http: HttpClient) {}
 

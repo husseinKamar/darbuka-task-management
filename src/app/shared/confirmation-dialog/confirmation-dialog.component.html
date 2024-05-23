@@ -1,11 +1,39 @@
-<div class="d-flex flex-row mb-4">
-    <h3 class="pb-2 text-uppercase me-auto ">
-      {{ dialogTitle }}
-    </h3>
+<div class="px-2 py-5">
+  <div>
+    <div class="flex justify-between">
+      <span class="flex">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="error"
+          fontIcon="error"
+        ></mat-icon>
 
-    <button mat-dialog-close class="mat-focus-indicator closeDialog mat-button mat-button-base">
-      <!-- <fa-icon [icon]="faMinus" class="d-block text-center"></fa-icon> -->
-    </button>
+        <h3 class="font-bold">{{ confirmationTitle }}</h3>
+      </span>
+
+      <a href="javascript:;" mat-dialog-close>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="close"
+          fontIcon="close"
+        ></mat-icon>
+      </a>
+    </div>
   </div>
 
+  <div class="my-4">
+    <h2 class="font-bold text-sky-900">{{ confirmationQuestion }}</h2>
+  </div>
 
+  <div class="flex flex-row-reverse">
+    <span class="mx-3">
+      <button mat-raised-button color="warn" (click)="closeDialog(true)">
+        Yes
+      </button>
+    </span>
+
+    <span>
+      <button mat-raised-button (click)="closeDialog(false)">No</button>
+    </span>
+  </div>
+</div>

@@ -6,17 +6,18 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
 } from '@angular/router';
+import { StorageHelper } from '../helpers/storage.helper';
 
 export const isAuthanticatedGuardFn: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
-  // const router = inject(Router);
+  const router = inject(Router);
+  const storage = new StorageHelper();
 
-  // if(isAuthorized){
-  return true;
-  // }
+  if (storage.get('token')) return true;
 
-  //   router.navigate(['/auth/login']);
-  //   return false;
+  console.log('not authorized');
+  router.navigate(['/auth/login']);
+  return false;
 };

@@ -4,9 +4,9 @@ import { isAuthanticatedGuardFn } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path:'',
-    redirectTo: 'tasks-management',
-    pathMatch: 'full'
+    path: '',
+    redirectTo: 'auth',
+    pathMatch: 'full',
   },
   {
     path: 'auth',
@@ -15,8 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'tasks-management',
-    canActivate:[isAuthanticatedGuardFn],
-    canActivateChild:[],
+    canActivate: [isAuthanticatedGuardFn],
+    canActivateChild: [],
     loadChildren: () =>
       import('./application/tasks-management/task-management.module').then(
         (m) => m.TaskManagementModule

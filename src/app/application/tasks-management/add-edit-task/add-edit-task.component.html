@@ -1,1 +1,64 @@
-<p>add-edit-task works!</p>
+<div class="m-10">
+  <div class="flex justify-between">
+    <h3>{{ dialogTitle }}</h3>
+
+    <a href="javascript:;" [matDialogClose]>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="close"
+        fontIcon="close"
+      ></mat-icon>
+    </a>
+  </div>
+
+  <ng-container *ngIf="errorMessage">
+    <div class="my-3 border border-red-600 p-4">
+      <mat-error>{{ errorMessage }} </mat-error>
+    </div>
+  </ng-container>
+  <form [formGroup]="form" class="my-5">
+    <div class="mb-2">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input
+          matInput
+          type="text"
+          [formControlName]="'title'"
+          id="task-title"
+        />
+      </mat-form-field>
+
+      <app-form-input-error
+        [errors]="form.get('title')?.errors"
+        *ngIf="checkFieldPristineOrDirt('title')"
+      ></app-form-input-error>
+    </div>
+
+    <div class="mb-2">
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          [formControlName]="'description'"
+          id="task-title"
+        ></textarea>
+      </mat-form-field>
+      <app-form-input-error
+        [errors]="form.get('description')?.errors"
+        *ngIf="checkFieldPristineOrDirt('description')"
+      ></app-form-input-error>
+    </div>
+
+    <div class="mb-2">
+      <mat-slide-toggle class="example-margin" [formControlName]="'status'">
+        {{ statusText }}
+      </mat-slide-toggle>
+    </div>
+
+    <div class="flex flex-row-reverse">
+      <button mat-raised-button color="primary" (click)="submitForm()">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

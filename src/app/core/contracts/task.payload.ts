@@ -1,5 +1,4 @@
-export type TaskContract = {
-  id: string;
+export type TaskPayload = {
   title: string;
   description: string;
   status: string;

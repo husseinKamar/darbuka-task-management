@@ -1,3 +1,15 @@
+After cloning this project open the console and run `npm install` to install all dependecies
+
+After cloning you will notice missing of 'environments' folder which will be shared by email
+
+To run this project with a fake server run `npm run server` then you have to run `npm run start` and navigate to the specified url to display the application.
+
+After runing the server you can access `http://localhost:8000/` to display its data.
+
+You can use [admin@me.com] as email and [123] as password to access the application.
+
+You can access [src/db.json] where the json-server is pointing to check and manipulate the data manually.
+
 # DarbukaTasks
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
